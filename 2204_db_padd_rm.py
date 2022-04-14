@@ -1,24 +1,33 @@
+import os
 
-print('패딩제거용 제작이지만 텍스트 스위칭 가능')
+dir_path='.\\db_list'
+#word=''
+#new_word=''
 
+print('\n# Path is = ' + dir_path + '\n')
+print('# Database List\n')
 
-file_path='.\\testdb.txt'
-word=''
-new_word=' '
+f_list = os.listdir(dir_path)
 
+for file_name in f_list:
+	print(file_name)
+#	db_path =+ dir_path + '\\' + file_name
+#	print(db_path)
 
-def replace_blank(file_path, word, new_word):
-		f = open(file_path, 'r')
+def replace_blank(word, new_word):
+	for file_name in f_list:
+		db_path = dir_path + '\\' + file_name
+		f = open(db_path, 'r')
 		lines = f.readlines()
 		f.close()
 
-		fw = open(file_path, 'w')
+		fw = open(db_path, 'w')
 		for lien in lines:
 			fw.write(lien.replace(word, new_word))
 		fw.close()
 
-replace_blank(file_path, word, new_word)
+replace_blank('mm', 'k')
+print('\nE N D')
 
-#바꿀횟수
-#replace_blank(file_path, word, new_word, 1) 전체 1
-#replace_blank(file_path, word, new_word, -1) 뒤에서 1
+
+// 
