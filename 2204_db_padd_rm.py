@@ -25,11 +25,11 @@ def replace_blank(old_word, new_word):
 		fw = open(db_path, 'w')
 		for line in lines:
 			fw.write(line.replace(old_word, new_word))
-		fw.close()
+			fw.close()
 		print('- clear  ' + file_name)
 
 #어떻게 교환 할건지
-replace_blank('word1', 'word2')
+replace_blank('2', '55')
 
 #끝
 print('\nend')
