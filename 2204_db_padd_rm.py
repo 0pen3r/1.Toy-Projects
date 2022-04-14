@@ -11,25 +11,25 @@ print('\n# Path is = ' + dir_path + '\n')
 print('# Database List\n')
 
 #파일 리스트
-f_list = os.listdir(dir_path)
-print(f_list)
+file_list = os.listdir(dir_path)
+print(file_list)
 
 #old_word를 new_word로, 공백도 제거 가능
 def replace_blank(old_word, new_word):
-	for file_name in f_list:
+	for file_name in file_list:
 		db_path = dir_path + '\\' + file_name
 		f = open(db_path, 'r')
 		lines = f.readlines()
 		f.close()
 
 		fw = open(db_path, 'w')
-		for lien in lines:
-			fw.write(lien.replace(old_word, new_word))
+		for line in lines:
+			fw.write(line.replace(old_word, new_word))
 		fw.close()
 		print('- clear  ' + file_name)
 
 #어떻게 교환 할건지
-replace_blank('단어1', '단어2')
+replace_blank('word1', 'word2')
 
 #끝
 print('\nend')
