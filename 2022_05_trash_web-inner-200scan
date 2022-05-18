@@ -1,0 +1,33 @@
+#왜짰는지 모르겠다.
+#내부망 80 살아있는 홈페이지, 대역단위로 체크하려는 의도였다
+#python 공부할겸 대충대충 짜서.. 다수의 포트 지원x, 단순 200 response만 체크한다.
+#추후 개선할 의지는 없을듯하다.
+
+# -*- coding: utf-8 -*-
+
+import requests
+
+print('=============start===============')
+print('=================================')
+print('=================================')
+
+url = input("ip 입력( ex. 192.168.50. ): ")
+rangee = input("범위 입력( ex. 1-100까지 = 100 ): ")
+port = input("포트 입력( ex. 80 ): ")
+
+for i in range(1, int(rangee)):
+	try:	
+		res = requests.get('http://'+url+str(i)+':'+str(port))
+		print(url+'is 200\n\n')
+	except requests.exceptions.Timeout as errd:
+	    print("Timeout Error : ", errd)
+	    
+	except requests.exceptions.ConnectionError as errc:
+	    print("Error Connecting : ", errc)
+	    
+	except requests.exceptions.HTTPError as errb:
+	    print("Http Error : ", errb)
+
+	# Any Error except upper exception
+	except requests.exceptions.RequestException as erra:
+	    print("AnyException : ", erra)
