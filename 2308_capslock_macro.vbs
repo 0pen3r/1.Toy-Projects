@@ -1,6 +1,6 @@
 Set ws = CeateObject("WScript.Shell")
 Do
-  Wscript.Sleep 59000
+  WScript.Sleep 59000
   ws.Sendkeys "{CAPSLOCK}{CAPSLOCK}"
 Loop
 
